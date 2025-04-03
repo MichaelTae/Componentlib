@@ -1,6 +1,6 @@
 export const navBarItemsData = [
   {
-    title: 'Title1',
+    title: 'Placeholder Title',
     items: [
       { title: 'item 1', link: '/item1' },
       { title: 'item 2', link: '/item2' },
