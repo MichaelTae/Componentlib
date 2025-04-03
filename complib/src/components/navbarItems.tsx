@@ -1,5 +1,6 @@
 import { useState } from 'react';
-export const navbarItems = (items: any) => {
+import { NavbarItem } from '../data/interfaces';
+export const navbarItems = (items: NavbarItem[]) => {
   const [visibleItems, setVisibleItems] = useState<{ [key: string]: boolean }>(
     {}
   );
