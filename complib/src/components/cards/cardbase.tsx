@@ -1,9 +1,24 @@
 import { ReactNode } from 'react';
 
-export const CardBase = (props?: { children: ReactNode }) => {
+interface CardBaseProps {
+  componentName: string;
+  children?: ReactNode;
+  onSelect: (componentName: string) => void;
+}
+
+export const CardBase = ({
+  componentName,
+  children,
+  onSelect,
+}: CardBaseProps) => {
   return (
-    <div className='card w-80 h-44 border border-neon-blue bg-gray-600 shadow-sm shadow-neon-blue rounded-lg overflow-hidden'>
-      {props?.children}
+    <div
+      data-card-name={componentName}
+      className='w-full h-full border
+       border-neon-blue bg-gray-600 shadow-sm shadow-neon-blue rounded-lg overflow-hidden px-4 grid'
+      onClick={() => onSelect(componentName)}
+    >
+      {children}
     </div>
   );
 };
