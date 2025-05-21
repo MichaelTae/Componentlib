@@ -6,4 +6,4 @@ export const InputBase = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <input className={className} ref={ref} {...props} />
 ));
-InputBase.displayName = 'CardInput';
+InputBase.displayName = 'InputBase';
