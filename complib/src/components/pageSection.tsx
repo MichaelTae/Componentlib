@@ -21,7 +21,7 @@ export const PageSection = ({
             {selectedComponent}
           </div>
         </div>
-        <div className=' grid grid-cols-4 grid-rows-3  gap-2 justify-center p-4 cursor-pointer '>
+        <div className=' grid grid-cols-4 grid-rows-2  gap-2 justify-center p-4 cursor-pointer '>
           {children}
         </div>
       </div>
