@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { NavbarItem } from '../data/interfaces';
-export const navbarItems = (items: NavbarItem[]) => {
+export const navbarItems = (
+  items: NavbarItem[],
+  handleClick: (title: string) => void
+) => {
   const [visibleItems, setVisibleItems] = useState<{ [key: string]: boolean }>(
     {}
   );
@@ -18,6 +21,7 @@ export const navbarItems = (items: NavbarItem[]) => {
           <div
             key={item.title}
             className='border border-neon-blue rounded-lg shadow-sm bg-sky-950'
+            onClick={() => handleClick(item.title)}
           >
             <button
               onClick={() => toggleVisibility(item.title)}
