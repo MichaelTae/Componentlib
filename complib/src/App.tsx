@@ -3,23 +3,27 @@ import Container from './components/container';
 import Layout from './components/layout';
 import Navbar from './components/navbar';
 import { PageSection } from './components/pageSection';
-import { useComponents } from './utils/hooks/componentHooks';
+import { useComponentGroups } from './utils/hooks/useComponentGroup';
+import { useState } from 'react';
+type GroupKey = 'Cards' | 'Buttons';
 
 function App() {
-  const { components, selectedComponent, selectedComponentName } =
-    useComponents();
-
+  const componentGroups = useComponentGroups();
+  const [selectedNavItem, setSelectedNavItem] = useState<GroupKey>('Cards');
+  const group = componentGroups[selectedNavItem];
   return (
     <>
       <Container>
-        <Navbar />
+        <Navbar
+          onNavItemClick={(item) => setSelectedNavItem(item as GroupKey)}
+        />
         <Layout>
           <PageSection
-            title='Placeholder Title'
-            selectedComponent={selectedComponent}
-            selectedComponentName={selectedComponentName || ''}
+            title={selectedNavItem}
+            selectedComponent={group.selectedComponent}
+            selectedComponentName={group.selectedComponentName ?? ''}
           >
-            {components}
+            {group.components}
           </PageSection>
         </Layout>
       </Container>
