@@ -34,5 +34,5 @@ export function useButtons() {
   const selectedComponent = components.find(
     (comp) => (comp.props as any).componentName === selectedComponentName
   );
-  return { components, selectedComponent, selectedComponentName: '' };
+  return { components, selectedComponent, selectedComponentName };
 }
