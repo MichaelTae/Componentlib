@@ -15,7 +15,7 @@ export const CardBase = ({
     <div
       data-card-name={componentName}
       className='w-full h-full border
-       border-neon-blue bg-gray-600 shadow-sm shadow-neon-blue rounded-lg overflow-hidden px-4 grid'
+       border-neon-blue bg-gray-600 shadow-sm shadow-neon-blue rounded-lg  px-4 grid'
       onClick={() => onSelect(componentName)}
     >
       {children}
