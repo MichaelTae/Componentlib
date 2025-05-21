@@ -1,11 +1,15 @@
-interface ButtonBaseProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface CustomButtonProps {
   variant?: 'primary' | 'secondary' | 'danger' | 'tertiary';
   size?: 'small' | 'medium' | 'large';
   className?: string;
   isLoading?: boolean;
   icon?: React.ReactNode;
+  componentName?: string;
+  onSelect?: (componentName: string) => void;
 }
+
+type ButtonBaseProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  CustomButtonProps;
 
 export const ButtonBase: React.FC<ButtonBaseProps> = ({
   variant = 'primary',
@@ -14,6 +18,8 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
   isLoading = false,
   icon,
   children,
+  componentName,
+  onSelect,
   ...rest
 }) => {
   const variantStyles: Record<string, string> = {
@@ -33,6 +39,10 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
     <button
       className={`cursor-pointer rounded flex items-center justify-center gap-2 bg- ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
       disabled={isLoading}
+      onClick={(e) => {
+        rest.onClick?.(e);
+        if (onSelect && componentName) onSelect(componentName);
+      }}
       {...rest}
     >
       {isLoading ? <span /> : icon}
