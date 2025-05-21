@@ -5,7 +5,7 @@ import Navbar from './components/navbar';
 import { PageSection } from './components/pageSection';
 import { useComponentGroups } from './utils/hooks/useComponentGroup';
 import { useState } from 'react';
-type GroupKey = 'Cards' | 'Buttons';
+type GroupKey = 'Cards' | 'Buttons' | 'Forms';
 
 function App() {
   const componentGroups = useComponentGroups();
