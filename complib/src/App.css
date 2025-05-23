@@ -3,3 +3,6 @@
 @theme {
   --color-neon-blue: rgba(0, 191, 166, 0.3);
 }
+.only-child\:border-b-0:only-child {
+  border-bottom-width: 0;
+}
