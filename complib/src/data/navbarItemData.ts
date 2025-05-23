@@ -4,7 +4,7 @@ interface NavBarItem {
     title: string;
     link: string;
   }>;
-  created?: Boolean;
+  created: boolean;
 }
 
 export const navBarItemsData: NavBarItem[] = [
@@ -37,7 +37,7 @@ export const navBarItemsData: NavBarItem[] = [
   },
   {
     title: 'Modals',
-    created: false,
+    created: true,
     items: [
       { title: 'item 1', link: '/item1' },
       { title: 'item 2', link: '/item2' },
@@ -46,7 +46,7 @@ export const navBarItemsData: NavBarItem[] = [
   },
   {
     title: 'Tables',
-    created: false,
+    created: true,
     items: [
       { title: 'item 1', link: '/item1' },
       { title: 'item 2', link: '/item2' },
