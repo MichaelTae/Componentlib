@@ -10,7 +10,6 @@ export function useForms() {
   const [selectedComponentName, setSelectedComponentName] = React.useState<
     string | null
   >(null);
-  console.log(selectedComponentName);
   const components = [
     <FormBase
       key={0}
