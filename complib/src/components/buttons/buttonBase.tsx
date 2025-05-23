@@ -6,6 +6,7 @@ interface CustomButtonProps {
   icon?: React.ReactNode;
   componentName?: string;
   onSelect?: (componentName: string) => void;
+  removeBaseClass?: boolean;
 }
 
 type ButtonBaseProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
@@ -20,6 +21,7 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
   children,
   componentName,
   onSelect,
+  removeBaseClass,
   ...rest
 }) => {
   const variantStyles: Record<string, string> = {
@@ -37,7 +39,11 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
 
   return (
     <button
-      className={`cursor-pointer rounded flex items-center justify-center gap-2 bg- ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+      className={
+        removeBaseClass
+          ? className
+          : `cursor-pointer rounded flex items-center justify-center gap-2 bg- ${variantStyles[variant]} ${sizeStyles[size]} ${className}`
+      }
       disabled={isLoading}
       onClick={(e) => {
         rest.onClick?.(e);
